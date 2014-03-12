@@ -3,6 +3,9 @@ import time
 import datetime
 import threading
 
+# Using threading for now to schedule, but probably safer to run
+# a cron job
+
 def tweetbot():
     # open takes the name of the file and modes like read and write
     with open('tweets.csv', 'r') as csvfile:
