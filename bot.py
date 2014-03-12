@@ -1,7 +1,7 @@
 import csv
 import time
 import datetime
-import threading
+from apscheduler.scheduler import Scheduler
 
 # Using threading for now to schedule, but probably safer to run
 # a cron job
