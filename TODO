@@ -1,5 +1,2 @@
-1. Add date check
-2. Continue untill all tweets done
-3. Tweet instead of print.
-4. Test.
-5. Change to real data.
+1. Tweet instead of print.
+2. Add try catch blocks if API fails
