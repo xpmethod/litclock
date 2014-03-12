@@ -3,11 +3,9 @@ import time
 import datetime
 from apscheduler.scheduler import Scheduler
 
-# Using threading for now to schedule, but probably safer to run
-# a cron job
-
-def tweetbot():
-    # open takes the name of the file and modes like read and write
+sched = Scheduler()
+@sched.interval_schedule(seconds=60)
+def twitterbot():
     with open('tweets.csv', 'r') as csvfile:
         tweetreader = csv.DictReader(csvfile, delimiter=",")
 
@@ -19,6 +17,4 @@ def tweetbot():
             if hour == now.hour and minute == now.minute:
                 print row['text']
 
-    threading.Timer(60, tweetbot).start()
-
-tweetbot()
+sched.start()
