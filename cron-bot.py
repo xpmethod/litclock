@@ -24,7 +24,7 @@ def gettext():
 
     now = datetime.datetime.now().time()
 
-    with open(path + 'tweets.csv', 'r') as csvfile:
+    with open(path + 'test.csv', 'r') as csvfile:
         tweets = csv.DictReader(csvfile, delimiter=",")
 
         for row in tweets:
@@ -32,7 +32,6 @@ def gettext():
             ft = row['time']
             hour = int(ft.split(':')[0])
             minute = int(ft.split(':')[1])
-
             if hour == now.hour and minute == now.minute:
                 return row['text']
 
@@ -42,17 +41,17 @@ def tweet(k, t):
 
     try:
         # k stores token, secret, api key, and api secret
-        auth = tweepy.OAuthHandler(k[2], k[4])
+        auth = tweepy.OAuthHandler(k[2], k[3])
         auth.set_access_token(k[0], k[1])
-
         api = tweepy.API(auth)
-        api.update_status('test')
+        api.update_status(t)
 
         # dummy write to a file instead of tweeting
         # f = open(path + 'log.txt', 'a')
         # f.write(t + '\n')
-    except:
-        pass
+
+    except tweepy.error.TweepError, e:
+        print 'failed because of %s' % e.reason
 
 # get creds > get text > tweet
 keys = getcreds()
