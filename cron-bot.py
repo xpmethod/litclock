@@ -9,17 +9,16 @@ import tweepy
 path = '/home/denten/gDrive/Code/Litclock/'
 
 
-getcreds()
-gettext()
-tweet()
-
 # separate the credits out to keep out of github
 def getcreds():
     with open(path + 'creds.csv', 'r') as csvfile:
         creds = csv.DictReader(csvfile, delimiter=",")
-        token = creds[0]['token']
-        secret = creds[0]['secret']
-        return key, secret
+
+        row = creds.next()
+        token = row['token']
+        secret = row['secret']
+
+        return token, secret
 
 
 # get the text corresponding to current time
@@ -41,7 +40,7 @@ def gettext():
 
 
 # tweet
-def tweet(t):
+def tweet(k, t):
 
     try:
         f = open(path + 'log.txt', 'a')
@@ -49,3 +48,7 @@ def tweet(t):
     except:
         pass
 
+# get creds > get text > tweet
+keys = getcreds()
+text = gettext()
+tweet(keys, text)
