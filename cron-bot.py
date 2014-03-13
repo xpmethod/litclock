@@ -6,7 +6,7 @@ import tweepy
 # cron settings
 # * * 12 03 * python /home/shared-drives/litclock/cron-bot.py
 # paths have to be explicit for cron
-path = '/home/shared-drives/Code/litclock/'
+path = '/home/shared-drives/litclock/'
 
 
 # separate the credits out to keep out of github
