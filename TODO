@@ -1,5 +1,2 @@
 - Sync server time
-- Tweet instead of print.
-- Add try catch blocks if API fails
-- remember to revert to main.cs
 - set cron job to tomorrow

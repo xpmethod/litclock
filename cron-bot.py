@@ -4,9 +4,9 @@ import datetime
 import tweepy
 
 # cron settings
-# * * 12 03 * python /home/denten/gDrive/Code/Litclock/cron-bot.py
+# * * 12 03 * python /home/shared-drives/litclock/cron-bot.py
 # paths have to be explicit for cron
-path = '/home/denten/gDrive/Code/Litclock/'
+path = '/home/shared-drives/Code/litclock/'
 
 
 # separate the credits out to keep out of github
