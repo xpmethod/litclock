@@ -24,7 +24,7 @@ def gettext():
 
     now = datetime.datetime.now().time()
 
-    with open(path + 'test.csv', 'r') as csvfile:
+    with open(path + 'tweets.csv', 'r') as csvfile:
         tweets = csv.DictReader(csvfile, delimiter=",")
 
         for row in tweets:
@@ -51,7 +51,8 @@ def tweet(k, t):
         # f.write(t + '\n')
 
     except tweepy.error.TweepError, e:
-        print 'failed because of %s' % e.reason
+        # print 'failed because of %s' % e.reason
+        pass
 
 # get creds > get text > tweet
 keys = getcreds()
