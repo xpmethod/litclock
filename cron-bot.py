@@ -15,10 +15,8 @@ def getcreds():
         creds = csv.DictReader(csvfile, delimiter=",")
 
         row = creds.next()
-        token = row['token']
-        secret = row['secret']
 
-        return token, secret
+        return row['token'], row['secret'], row['akey'], row['asecret']
 
 
 # get the text corresponding to current time
@@ -43,8 +41,16 @@ def gettext():
 def tweet(k, t):
 
     try:
-        f = open(path + 'log.txt', 'a')
-        f.write(t + '\n')
+        # k stores token, secret, api key, and api secret
+        auth = tweepy.OAuthHandler(k[2], k[4])
+        auth.set_access_token(k[0], k[1])
+
+        api = tweepy.API(auth)
+        api.update_status('test')
+
+        # dummy write to a file instead of tweeting
+        # f = open(path + 'log.txt', 'a')
+        # f.write(t + '\n')
     except:
         pass
 
