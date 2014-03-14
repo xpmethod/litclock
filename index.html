@@ -60,10 +60,13 @@
 <a name="how-did-you-get-the-quotes-to-tweet-every-minute" class="anchor" href="#how-did-you-get-the-quotes-to-tweet-every-minute"><span class="octicon octicon-link"></span></a>How did you get the quotes to Tweet every minute?</h3>
 
 <p><a href="https://github.com/dhcolumbia/litclock/blob/master/bot.py">This program</a> does the following things:
-1. First it reads the 1,440 tweets from <a href="https://github.com/dhcolumbia/litclock/blob/master/tweets.csv">this file</a>
-2. Then it separates each line into two columns, one for the time, the other for the tweet
-3. Then it checks the time on our server's clock. 
-4. If the current time matches a time found in the time column of tweets.csv, it passes the tweet to this <a href="https://github.com/dhcolumbia/litclock/blob/master/cron-bot.py">second program</a>.</p>
+1. First it reads the 1,440 tweets from <a href="https://github.com/dhcolumbia/litclock/blob/master/tweets.csv">this file</a></p>
+
+<ol>
+<li><p>Then it separates each line into two columns, one for the time, the other for the tweet</p></li>
+<li><p>Then it checks the time on our server's clock. </p></li>
+<li><p>If the current time matches a time found in the time column of tweets.csv, it passes the tweet to this <a href="https://github.com/dhcolumbia/litclock/blob/master/cron-bot.py">second program</a>.</p></li>
+</ol>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/dhcolumbia">dhcolumbia</a></p>
