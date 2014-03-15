@@ -29,7 +29,7 @@
       </header>
       <section>
         <h3>
-<a name="the-clock-will-start-tweeting-at-midnight-on-thursday-31314" class="anchor" href="#the-clock-will-start-tweeting-at-midnight-on-thursday-31314"><span class="octicon octicon-link"></span></a>The clock will start tweeting at midnight on Thursday, 3/13/14.</h3>
+<a name="the-clock-started-at-midnight-on-thursday-31314" class="anchor" href="#the-clock-started-at-midnight-on-thursday-31314"><span class="octicon octicon-link"></span></a>The clock started at midnight on Thursday, 3/13/14.</h3>
 
 <p>This project was inspired by Christian Marclay's "<a href="https://en.wikipedia.org/wiki/The_Clock_(2010_film)">The Clock</a>." Each minute, the LITclock <a href="https://twitter.com/LITclock">Twitter handle</a> will tweet one minute in time from a novel or narrative non-fiction book. (Occasionally, a travel guide chimes in.) Each tweet will be a quote from a book, describing what is happening in that very minute. </p>
 
@@ -59,13 +59,20 @@
 <h3>
 <a name="how-did-you-get-the-quotes-to-tweet-every-minute" class="anchor" href="#how-did-you-get-the-quotes-to-tweet-every-minute"><span class="octicon octicon-link"></span></a>How did you get the quotes to Tweet every minute?</h3>
 
-<p><a href="https://github.com/dhcolumbia/litclock/blob/master/bot.py">This program</a> does the following things:
-1. First it reads the 1,440 tweets from <a href="https://github.com/dhcolumbia/litclock/blob/master/tweets.csv">this file</a></p>
+<p>Every 60 seconds, <a href="https://github.com/dhcolumbia/litclock/blob/master/bot.py">this program</a> does the following things:</p>
 
 <ol>
-<li><p>Then it separates each line into two columns, one for the time, the other for the tweet</p></li>
+<li><p>First it reads <a href="https://github.com/dhcolumbia/litclock/blob/master/tweets.csv">this file</a>, which has organized tweets and timestamps into 1,440 lines, one for each minute.</p></li>
+<li><p>Then it separates each line into two columns, one column for the time, the other for the tweet.</p></li>
 <li><p>Then it checks the time on our server's clock. </p></li>
-<li><p>If the current time matches a time found in the time column of tweets.csv, it passes the tweet to this <a href="https://github.com/dhcolumbia/litclock/blob/master/cron-bot.py">second program</a>.</p></li>
+<li><p>If the current minute matches a timestamp found in the "time" column of tweets.csv, it passes that information to this <a href="https://github.com/dhcolumbia/litclock/blob/master/cron-bot.py">second program</a>.</p></li>
+</ol><p><a href="https://github.com/dhcolumbia/litclock/blob/master/cron-bot.py">This program</a> does the following things:</p>
+
+<ol>
+<li><p>First it asks for our Twitter handle's credentials. </p></li>
+<li><p>Then it asks for the information passed from the first program (the timestamp and tweet text).</p></li>
+<li><p>It connects to the Twitter API with our credentials.</p></li>
+<li><p>It tweets</p></li>
 </ol>
       </section>
       <footer>
