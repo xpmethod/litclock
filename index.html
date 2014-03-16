@@ -59,20 +59,13 @@
 <h3>
 <a name="how-did-you-get-the-quotes-to-tweet-every-minute" class="anchor" href="#how-did-you-get-the-quotes-to-tweet-every-minute"><span class="octicon octicon-link"></span></a>How did you get the quotes to Tweet every minute?</h3>
 
-<p>Every 60 seconds, <a href="https://github.com/dhcolumbia/litclock/blob/master/bot.py">this program</a> does the following things:</p>
+<p>Every 60 seconds, <a href="https://github.com/dhcolumbia/litclock/blob/master/cron-bot.py">this program</a> does the following things:</p>
 
 <ol>
 <li><p>First it reads <a href="https://github.com/dhcolumbia/litclock/blob/master/tweets.csv">this file</a>, which has organized tweets and timestamps into 1,440 lines, one for each minute.</p></li>
 <li><p>Then it separates each line into two columns, one column for the time, the other for the tweet.</p></li>
 <li><p>Then it checks the time on our server's clock. </p></li>
-<li><p>If the current minute matches a timestamp found in the "time" column of tweets.csv, it passes that information to this <a href="https://github.com/dhcolumbia/litclock/blob/master/cron-bot.py">second program</a>.</p></li>
-</ol><p><a href="https://github.com/dhcolumbia/litclock/blob/master/cron-bot.py">This program</a> does the following things:</p>
-
-<ol>
-<li><p>First it asks for our Twitter handle's credentials. </p></li>
-<li><p>Then it asks for the information passed from the first program (the timestamp and tweet text).</p></li>
-<li><p>It connects to the Twitter API with our credentials.</p></li>
-<li><p>It tweets</p></li>
+<li><p>If the current minute matches a timestamp found in the "time" column of tweets.csv, it connects to the Twitter API with our credentials and tweets out the corresponding message.</p></li>
 </ol>
       </section>
       <footer>
