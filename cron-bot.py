@@ -7,16 +7,16 @@ import tweepy
 # paths have to be explicit for cron
 path = '/home/shared-drives/litclock/'
 
-tweet(getcreds(), gettext())
+tweet(creds(), text())
 
 # separate the credits out to keep out of github
-def getcreds():
+def creds():
     with open(path + 'creds.csv', 'r') as csvfile:
         creds = csv.DictReader(csvfile, delimiter=",")
         row = creds.next()
         return row['token'], row['secret'], row['akey'], row['asecret']
 
-def gettext():
+def text():
     now = datetime.datetime.now().time()
     with open(path + 'tweets.csv', 'r') as csvfile:
         tweets = csv.DictReader(csvfile, delimiter=",")
