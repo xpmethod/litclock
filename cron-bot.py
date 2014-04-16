@@ -1,5 +1,4 @@
 import csv
-import time
 import datetime
 import tweepy
 
