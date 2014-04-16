@@ -8,9 +8,7 @@ import tweepy
 # paths have to be explicit for cron
 path = '/home/shared-drives/litclock/'
 
-keys = getcreds()
-text = gettext()
-tweet(keys, text)
+tweet(getcreds(), gettext())
 
 # separate the credits out to keep out of github
 def getcreds():
