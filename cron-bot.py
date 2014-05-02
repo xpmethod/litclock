@@ -7,8 +7,6 @@ import tweepy
 # paths have to be explicit for cron
 path = '/home/shared-drives/litclock/'
 
-tweet(creds(), text())
-
 # separate the credits out to keep out of github
 def creds():
     with open(path + 'creds.csv', 'r') as csvfile:
@@ -41,3 +39,5 @@ def tweet(k, t):
         # implement logging later
         # print 'failed because of %s' % e.reason
         pass
+
+tweet(creds(), text())
