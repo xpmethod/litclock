@@ -1,1 +1,1 @@
-We have no interest in Twitter. Twitter bots howeve, are a whole other story. 
+We have no interest in Twitter. Twitter bots however, are a whole other story. 
